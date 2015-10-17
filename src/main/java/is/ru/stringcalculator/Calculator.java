@@ -1,6 +1,10 @@
 package is.ru.stringcalculator;
 
 public class Calculator { 
+	private static int toInt(String num){
+		return Integer.parseInt(num);
+	}
+
 	public static int add(String text){
 		if(text == "") {
 			return 0;
@@ -9,7 +13,7 @@ public class Calculator {
 			return sum(splitNumbers(text));
 		}
 		else {
-			return Integer.parseInt(text);
+			return toInt(text);
 		}
 	}
 
@@ -20,7 +24,7 @@ public class Calculator {
 	private static int sum(String[] numbers){
  	    int total = 0;
         for(String number : numbers){
-		    total += Integer.parseInt(number);
+		    total += toInt(number);
 		}
 		return total;
     }
