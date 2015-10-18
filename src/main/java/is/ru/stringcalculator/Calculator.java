@@ -19,8 +19,6 @@ public class Calculator {
 		}
 	}
 
-
-
 	private static String[] splitNumbers(String text) {
 		if(text.charAt(0) == '/' && text.charAt(1) == '/') {
 			String[] temp = text.split("[\\n]", 2);
@@ -56,9 +54,4 @@ public class Calculator {
 		}
 		return total;
     }
-	
-	 
-	public static void main(String args[]) {
-		
-	}
 }
