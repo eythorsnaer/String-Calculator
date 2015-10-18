@@ -9,16 +9,24 @@ public class Calculator {
 		if(text == "") {
 			return 0;
 		}
-		else if(text.contains(",")) {
-			return sum(splitNumbers(text));
-		}
-		else {
+		if(text.length() == 1) {
 			return toInt(text);
 		}
+		
+		return sum(splitNumbers(text));
 	}
 
 	private static String[] splitNumbers(String text) {
-		return text.split("[,\\n]");
+		if(text.charAt(0) == '/' && text.charAt(1) == '/') {
+			String[] temp = text.split("[\\n]", 2);
+			Character delimiter = temp[0].charAt(2);
+			
+			return temp[1].split("[,\\n" + delimiter + "]");
+		}
+		else {
+			return text.split("[,\\n]");
+		}
+				
 	}
 
 	private static int sum(String[] numbers){
@@ -28,4 +36,9 @@ public class Calculator {
 		}
 		return total;
     }
+	
+	 
+	public static void main(String args[]) {
+		
+	}
 }

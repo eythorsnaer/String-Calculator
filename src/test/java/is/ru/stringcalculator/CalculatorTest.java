@@ -33,5 +33,14 @@ public class CalculatorTest {
     @Test
     public void testNewLine(){
     	assertEquals(6, Calculator.add("1\n2,3"));
+    	assertEquals(55, Calculator.add("1,2,3\n4\n5,6,7\n8,9,10"));
+    	assertEquals(6, Calculator.add("1\n2\n3"));
+    }
+
+    @Test
+    public void testDelimiter(){
+    	assertEquals(6, Calculator.add("//;\n1;2;3"));
+    	assertEquals(55, Calculator.add("//.\n1.2,3\n4\n5,6,7\n8.9.10"));
+    	assertEquals(6, Calculator.add("1,2\n3"));
     }
 }
