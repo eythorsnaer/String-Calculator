@@ -55,4 +55,9 @@ public class CalculatorTest {
     	}
     	
     }
+
+    @Test
+    public void testBiggerThanK(){
+    	assertEquals(6, Calculator.add("1,2,3,1234"));
+    }
 }

@@ -6,7 +6,6 @@ public class Calculator {
 		if(text == "") {
 			return 0;
 		}
-		
 		if(text.length() == 1) {
 			return toInt(text);
 		}
@@ -19,6 +18,8 @@ public class Calculator {
 			throw new IllegalArgumentException("negative numbers not allowed");
 		}
 	}
+
+
 
 	private static String[] splitNumbers(String text) {
 		if(text.charAt(0) == '/' && text.charAt(1) == '/') {
@@ -43,7 +44,11 @@ public class Calculator {
 	private static int sum(String[] numbers){
  	    int total = 0;
         for(String number : numbers){
-		    total += toInt(number);
+        	int n = toInt(number);
+        	if (n > 1000) {
+        		continue;
+        	}
+		    total += n;
 		}
 		return total;
     }
