@@ -2,6 +2,7 @@ package is.ru.stringcalculator;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import java.io.IOException;
 
 public class CalculatorTest {
 	public static void main(String args[]) {
@@ -42,5 +43,16 @@ public class CalculatorTest {
     	assertEquals(6, Calculator.add("//;\n1;2;3"));
     	assertEquals(55, Calculator.add("//.\n1.2,3\n4\n5,6,7\n8.9.10"));
     	assertEquals(6, Calculator.add("1,2\n3"));
+    }
+
+    @Test
+    public void testNegativeNumbers(){
+    	try {
+    		assertEquals(6, Calculator.add("1,-2,3"));
+    	}
+    	catch(IllegalArgumentException e) {
+    		assertEquals(1, 1);
+    	}
+    	
     }
 }
