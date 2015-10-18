@@ -41,14 +41,18 @@ public class Calculator {
 		return Integer.parseInt(num);
 	}
 
+	private static int CheckBiggerThanK(int num){
+		if (num > 1000) {
+        	return 0;
+        }
+        return num;
+	}
+
 	private static int sum(String[] numbers){
  	    int total = 0;
         for(String number : numbers){
         	int n = toInt(number);
-        	if (n > 1000) {
-        		continue;
-        	}
-		    total += n;
+		    total += CheckBiggerThanK(n);
 		}
 		return total;
     }
