@@ -59,4 +59,9 @@ public class CalculatorTest {
     public void testBiggerThanK(){
     	assertEquals(6, Calculator.add("1,2,3,1234"));
     }
+
+    @Test
+    public void testDelimiterOfAnyLength(){
+    	assertEquals(6, Calculator.add("//[***]\n1***2***3"));
+    }
 }

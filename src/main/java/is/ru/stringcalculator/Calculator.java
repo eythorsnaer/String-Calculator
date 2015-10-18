@@ -20,12 +20,24 @@ public class Calculator {
 	}
 
 	private static String[] splitNumbers(String text) {
-		if(text.charAt(0) == '/' && text.charAt(1) == '/') {
+		if(text.charAt(0) == '/' && text.charAt(1) == '/' && text.charAt(2) == '[') {
+			String[] temp = text.split("[\\n]", 2);
+
+			String delimiter = "";
+
+			for (int i = 3; i < temp[0].length()-1; i++) {
+				delimiter += temp[0].charAt(i);
+			}
+			
+			negativeNumberTest(temp[1]);
+			return temp[1].split("[,\\n" + delimiter + "]");
+		}
+		else if(text.charAt(0) == '/' && text.charAt(1) == '/') {
 			String[] temp = text.split("[\\n]", 2);
 			Character delimiter = temp[0].charAt(2);
 			
 			negativeNumberTest(temp[1]);
-			return temp[1].split("[,\\n" + delimiter + "]");
+			return temp[1].split("[,\\n\"" + delimiter + "\"]");
 		}
 		else {
 			negativeNumberTest(text);
